@@ -328,6 +328,7 @@ function postImageWidth(post_link,token,amzn_data,storeId,finalAmznData,telegrou
              let array = userExists[0].text_data.split("\n");
              if(userExists[0].text_data.match(/(((ftp|https?):\/\/)[\-\w@:%_\+.~#?,&\/\/=]+)/g)){ 
               let finalAmazon = userExists[0].text_data;
+              let finalIdList = JSON.parse(ListflagData.array_data).user;
               let finalPostList = JSON.parse(ListflagData.amzn_tele_value).telenogroup;
               let insertFeild = [rides[0].post_id + i, JSON.stringify(finalAmazon.replace(/[^0-9a-zA-Zㄱ-힣+×÷=%♤♡☆♧)(*&^/~#@!-:;,?`_|<>{}¥£€$◇■□●○•°※¤《》¡¿₩\[\]\"\' \\]/g ,""))]
               let sqlss = "INSERT INTO post_telegram3 (post_id,data) VALUES (" + nextId + "," + JSON.stringify(finalAmazon.replace(/[^0-9a-zA-Zㄱ-힣+×÷=%♤♡☆♧)(*&^/~#@!-:;,?`_|<>{}¥£€$◇■□●○•°※¤《》¡¿₩\[\]\"\' \\]/g ,"")) + ")";
