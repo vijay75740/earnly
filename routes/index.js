@@ -337,7 +337,7 @@ function postImageWidth(post_link,token,amzn_data,storeId,finalAmznData,telegrou
                   console.log('err: ', err);
                 }else{
                 for (let l = 0; l < finalPostList.length; l++) {
-                    teleAutoPostChannel(finalAmazon,finalPostList[l].groupname,ListflagData.kudart_token);
+                    teleAutoPostChannel(finalAmazon,finalPostList[l].groupname,ListflagData.kudart_tokens);
                 }
                 whatsapp_posts1(finalAmazon, finalIdList[0].apiKey,finalIdList[0].phoneId,finalIdList[0].productId);
                 whatsapp_posts2(finalAmazon, finalIdList[1].apiKey,finalIdList[1].phoneId,finalIdList[1].productId);
