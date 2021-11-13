@@ -172,6 +172,38 @@ function postImageWidth(post_link,token,amzn_data,storeId,finalAmznData,telegrou
       }
     }
  
+router.post('/WhatsAppUpdate3', function (req, res) {
+  async.waterfall([
+    function (nextCall) {
+      console.log('req.body: ', req.body);
+
+      values =  [
+                   JSON.stringify(req.body)
+                ]
+      var sqlss = "UPDATE post_flags set array_data =? WHERE id = 1";
+      connection.query(sqlss, values, function (err, rides) {
+        if (err) {
+          return nextCall({
+            "message": "something went wrong",
+          });
+        }
+        nextCall(null, rides[0]);
+      })
+    }
+  ], function (err, response) {
+    if (err) {
+      return res.send({
+        status: err.code ? err.code : 400,
+        message: (err && err.msg) || "someyhing went wrong"
+      });
+    }
+    return res.send({
+      status: 200,
+      message: "Edit post flag update sucessfully",
+      data: response
+    });
+  });
+});
 
     function telePost (token,post_img,post_title,post_regularPrice,post_sellPrice,savepercent,post_link,avilabilty) {
       var chatId = '@bestshoppingdeal00'; // <= replace with yours
