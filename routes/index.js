@@ -364,7 +364,7 @@ router.post('/WhatsAppUpdate3', function (req, res) {
              if(userExists[0].text_data.match(/(((ftp|https?):\/\/)[\-\w@:%_\+.~#?,&\/\/=]+)/g)){ 
               let finalAmazon = userExists[0].text_data;
               let finalIdList = JSON.parse(ListflagData.array_data).user;
-              let finalPostList = JSON.parse(ListflagData.amzn_tele_value).telenogroup;
+              let finalPostList = JSON.parse(ListflagData.earnly_tele_value).telenogroup;
               let insertFeild = [rides[0].post_id + i, JSON.stringify(finalAmazon.replace(/[^0-9a-zA-Zㄱ-힣+×÷=%♤♡☆♧)(*&^/~#@!-:;,?`_|<>{}¥£€$◇■□●○•°※¤《》¡¿₩\[\]\"\' \\]/g ,""))]
               let sqlss = "INSERT INTO post_telegram5 (post_id,data) VALUES (" + nextId + "," + JSON.stringify(finalAmazon.replace(/[^0-9a-zA-Zㄱ-힣+×÷=%♤♡☆♧)(*&^/~#@!-:;,?`_|<>{}¥£€$◇■□●○•°※¤《》¡¿₩\[\]\"\' \\]/g ,"")) + ")";
               connection.query(sqlss, [insertFeild], function (err, rides) {
@@ -372,7 +372,7 @@ router.post('/WhatsAppUpdate3', function (req, res) {
                   console.log('err: ', err);
                 }else{
                 for (let l = 0; l < finalPostList.length; l++) {
-                    teleAutoPostChannel(finalAmazon,finalPostList[l].groupname,ListflagData.kudart_tokens);
+                    teleAutoPostChannel(finalAmazon,finalPostList[l].groupname,ListflagData.kudart_token);
                 }
                 whatsapp_posts1(finalAmazon, finalIdList[0].apiKey,finalIdList[0].phoneId,finalIdList[0].productId);
                 whatsapp_posts2(finalAmazon, finalIdList[1].apiKey,finalIdList[1].phoneId,finalIdList[1].productId);
